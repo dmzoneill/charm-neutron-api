@@ -1383,7 +1383,9 @@ class CiscoAciContextTest(CharmTestCase):
     def test_ciscoaci_some_related_units(self):
         self.related_units.return_value = ['aciunit1']
         self.relation_ids.return_value = ['aciid1']
-        self.test_relation.set({'neutron_plugin': 'aci', 'aci_apic_system_id': 'openstack', 'aci_encap':'vxlan'})
+        self.test_relation.set({'neutron_plugin': 'aci',
+                                'aci_apic_system_id': 'openstack',
+                                'aci_encap': 'vxlan'})
         ctxt = context.CiscoAciContext()()
         expect = {'neutron_plugin': 'aci',
                   'aci_apic_system_id': 'openstack',
@@ -1394,7 +1396,9 @@ class CiscoAciContextTest(CharmTestCase):
     def test_ciscoaci_wrong_plugin_name(self):
         self.related_units.return_value = ['aciunit1']
         self.relation_ids.return_value = ['aciid1']
-        self.test_relation.set({'neutron_plugin': 'aci1', 'aci_apic_system_id': 'openstack', 'aci_encap':'vxlan'})
+        self.test_relation.set({'neutron_plugin': 'aci1',
+                                'aci_apic_system_id': 'openstack',
+                                'aci_encap': 'vxlan'})
         ctxt = context.CiscoAciContext()()
         expect = {}
 
